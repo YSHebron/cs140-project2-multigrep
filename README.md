@@ -2,17 +2,38 @@
 
 ## **Description**
 For this Operating Systems project, our goal was to **parallelize `grep`**, Linux's primary RegEx search utility.
-The topics of concurrency, multithreading, concurrency control structures such as locks, condition
-variables, and semaphores, critical sections in code, thread safety, and thread-locality,
-and interthread communication are key here. For the final output, see `multithreaded.c`.
-A single-threaded or a regular version is available as `single.c`.
+The concurrency topics of thread synchronization primitives such as locks, condition
+variables, and semaphores, critical sections in code, and thread safety and locality
+are key here. For the final output, see `multithreaded.c`.
+A single-threaded version is available as `single.c`.
 
 A prudent attempt at making a multiprocessing version was also done by on-the-go study of multiprocess-safety and implementation
 of interprocess communication constructs such as shared files and shared memory sections (e.g. via `mmap()`).
-For the result, see `multiprocess.c`. This is almost working, the only issue was with chain termination of the sibling processes.
+For the result, see `multiprocess.c`. This is almost working, the only issue was with the chain termination of sibling processes.
 
 Main language used was C. Compilation and testing were done through Oracle VirtualBox
 using CS 140's prebuilt Ubuntu appliance. Other tools used include Valgrind for catching memory leaks.
+
+Worker thread behavior in `multithreaded.c` along with their outputs and control signals are shown in the flowchart below.
+![worker_behavior.png](extras\worker_behavior_2.png)
+
+### **References**
+We immediately show our references here as they contain important realizations.
+- OSTEP (Ch. 29): The chapter’s threadsafe implementation of a dynamic queue served as a guide 
+for my own implementation which utilizes a heap-based unbounded buffer for the task queue. 
+- OSTEP  (Ch.  30):  The  chapter’s discussion  on  the  producer-consumer  bounded  buffer  problem 
+served as guide for my use of locks and condition variables for thread synchronization. 
+- OSTEP  (Ch.  39):  This  chapter  helped  me  understand  directory  traversal  and  the  handling  of 
+absolute and relative paths. 
+- https://stackoverflow.com/questions/3736320/executing-shell-script-with-system-returns-256-
+what-does-that-mean : For why we should divide the return value of system() by 256. 
+- https://unix.stackexchange.com/questions/119648/redirecting-to-dev-null : For how to redirect 
+to /dev/null. 
+- https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file : For 
+how  to  check  if  a  “file”  is  a  regular  file  or  a  directory.  This  is  where  I  got  the  idea  of  the  isDir 
+function from.
+
+*OSTEP:* Arpaci-Dusseau, A. C. & Arpaci-Dusseau, R. H. (2018). *Operating Systems: Three Easy Steps.* University of Wisconsin-Madison. https://research.cs.wisc.edu/wind/OSTEP/
 
 ### **Quick Links**
 - Full project specifications are in `extras\CS140_Project2_Specs.pdf`. Please email me for access.
