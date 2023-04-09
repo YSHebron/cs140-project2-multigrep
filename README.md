@@ -1,44 +1,22 @@
 ### **CS 140 Project 2: Parallelized grep Runner
 
 ## **Description**
-For this Operating Systems project, I had to write a multithreaded.
-The topic of concurrency, concurrency control structures such as locks, condition
-variables, and semaphores, and thread-local and global constructs are key here.
+For this Operating Systems project, our goal was to **parallelize `grep`**, Linux's primary RegEx search utility.
+The topics of concurrency, multithreading, concurrency control structures such as locks, condition
+variables, and semaphores, critical sections in code, thread safety, and thread-locality,
+and interthread communication are key here. For the final output, see `multithreaded.c`.
+A single-threaded or a regular version is available as `single.c`.
+
+A prudent attempt at making a multiprocessing version was also done by on-the-go study and implementation
+of interprocess communication constructs such as shared files and shared memory sections (e.g. via `mmap()`).
+For the result, see `multiprocess.c`. This is almost working, the only issue was with chain termination of the sibling processes.
+
 Main language used was C. Compilation and testing were done through Oracle VirtualBox
 using CS 140's prebuilt Ubuntu appliance. Other tools used include Valgrind for catching memory leaks.
 
-The RSDL scheduler uses an Active set and an Expired set alongside the process table as scheduling heuristics
-to help decide which process to run next in a more fair and heuristic manner.
-
-The Active and Expired sets both have `N` FIFO levels (or queues) in them (think **staircase**).
-Each level is given a limited level-local quantum (runtime in ticks) that is decremented as a process in that level runs.
-Note that this is more relevant for the Active set. Once a level uses up its entire quantum, all processes in it are ejected and enqueued to
-the level below it (level `N-1`) in the exact same order. And once all levels in the Active set uses up their entire quantum, the Active set
-is swapped for the Expired set which is then made the new Active set (think **rotation**) with replenished level-local quanta.
-
-Moreover, each process is given a limited process-local quanta.
-Upon using up its entire quantum, the process (running in the Active set) moves
-down a level (to level `N-1`) where it gets enqueued and its quantum is replenished (think **deadline**).
-A process that is selected to run in a set's particular level is then said to be dequeued from that level.
-Note that a process begins its life in a predefined level (see `rsdl.h`).
-
-A process that expires at the bottommost level is then moved to the Expired set where it will wait for its next turn.
-There are *multiple caveats* here, such as on:
-- What happens when a process consumes its entire quantum as it exits (zombie!)?
-- What happens when the Active set runs out of processes to run but still has nonzero level-local quanta?
-- What happens when a process expires but all the levels below it has no more level-local quanta?
-
-These are all answered in the Project Documentation and Specs, so you may want to read those for thorough awareness of these caveats.
-
-A high-level view of RSDL is shown below. Process Control Blocks (PCBs or processes in short) are still stored in ptable.proc .
-The “process” entries stored in the level queues in the `ptable.active` and the `ptable.expired` sets are
-essentially just pointers to their corresponding PCBs in `ptable.proc`, and it is on these sets that RSDL
-selects for processes to schedule.
-![rsdl.png](extras/rsdl.png)
-
 ### **Quick Links**
-- Full project specifications are in `extras\CS140_Project1_Specs.pdf`. Please email me for access.
-- Project Documentation can be found in `extras\cs140project1.pdf`.
+- Full project specifications are in `extras\CS140_Project2_Specs.pdf`. Please email me for access.
+- Project Documentation can be found in `extras\cs140project2.pdf`.
 - Video Documentation can be found [here](https://drive.google.com/file/d/1tz89OH9HZINDWIyBGx8JMmch4MLltlsT/view?usp=share_link).
 
 ## **Collaboration**
