@@ -19,15 +19,6 @@ using CS 140's prebuilt Ubuntu appliance. Other tools used include Valgrind for 
 - Project Documentation can be found in `extras\cs140project2.pdf`.
 - Video Documentation can be found [here](https://drive.google.com/file/d/1tz89OH9HZINDWIyBGx8JMmch4MLltlsT/view?usp=share_link).
 
-## **Collaboration**
-I teamed with **Jan Paul Batrina** and **Angelo Convento** for this project.
-My role is mainly quality assurance with focus on optimization and debugging.
-It was my job to paintstakingly test the kernel for stability and fulfillment of requirements.
-Towards this, I wrote a lot of test programs, brought up edge cases and caveats, combed through many output logs, and diligently engaged
-in communication with my teammates from suggestions to documentation.
-Of course, to proceed with this, I had to have an in-depth understanding of how the xv6 kernel
-works in both its original and modified forms.
-
 ## **Requirements**
 It is suggested for you to only watch the video documentation or skim through the written documentation.
 
