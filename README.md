@@ -17,10 +17,10 @@ using CS 140's prebuilt Ubuntu appliance. Other tools used include Valgrind for 
 ### **Quick Links**
 - Full project specifications are in `extras\CS140_Project2_Specs.pdf`. Please email me for access.
 - Project Documentation can be found in `extras\cs140project2.pdf`.
-- Video Documentation can be found [here](https://drive.google.com/file/d/1tz89OH9HZINDWIyBGx8JMmch4MLltlsT/view?usp=share_link).
+- Video Documentation can be found [here](https://drive.google.com/file/d/1TQsPHLUj58J7ZiazSH22b_iuG5ZbK7XZ/view?usp=share_link).
 
 ## **Requirements**
-It is suggested for you to only watch the video documentation or skim through the written documentation.
+It is suggested for you to only watch the video documentation or read the written documentation.
 
 However, if you really wish to verify the results on your end, the following would be needed.
 - Windows 7 or higher. Otherwise, skip the next bullet if you already have a Linux environment.
