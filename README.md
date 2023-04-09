@@ -7,9 +7,9 @@ variables, and semaphores, critical sections in code, and thread safety and loca
 are key here. For the final output, see `multithreaded.c`.
 A single-threaded version is available as `single.c`.
 
-A prudent attempt at making a multiprocessing version was also done by earnest study of multiprocess-safety and implementation
+> A prudent attempt at making a multiprocessing version was also done by earnest study of multiprocess-safety and implementation
 of interprocess communication constructs such as shared files and shared memory sections (e.g. via `mmap`).
-For the result, see `multiprocess.c`. This is almost working, the only issue was in the chain termination of sibling processes.
+For the result, see `multiprocess.c`. This was almost working, the only issue was in the chain termination of sibling processes.
 
 Main language used was C. Compilation and testing were done through Oracle VirtualBox
 using CS 140's prebuilt Ubuntu appliance. Other tools used include Valgrind for catching memory leaks.
@@ -84,8 +84,7 @@ Other suggested test cases:
 ```
 
 ---
-Yenzy Urson S. Hebron \
-yshebron@up.edu.ph
+Yenzy Urson S. Hebron \<yshebron@up.edu.ph\>
 
 University of the Philippines Diliman
 
