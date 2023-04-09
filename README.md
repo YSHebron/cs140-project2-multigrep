@@ -7,7 +7,7 @@ variables, and semaphores, critical sections in code, thread safety, and thread-
 and interthread communication are key here. For the final output, see `multithreaded.c`.
 A single-threaded or a regular version is available as `single.c`.
 
-A prudent attempt at making a multiprocessing version was also done by on-the-go study and implementation
+A prudent attempt at making a multiprocessing version was also done by on-the-go study of multiprocess-safety and implementation
 of interprocess communication constructs such as shared files and shared memory sections (e.g. via `mmap()`).
 For the result, see `multiprocess.c`. This is almost working, the only issue was with chain termination of the sibling processes.
 

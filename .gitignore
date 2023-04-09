@@ -12,3 +12,6 @@ printer
 printer.c
 project2
 .vscode
+*.bkp
+*.docx
+extras/CS140_Project2_Specs.pdf
