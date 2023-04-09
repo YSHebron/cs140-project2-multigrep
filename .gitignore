@@ -4,10 +4,10 @@
 !*.*
 
 # Others
-*.out
+#*.out
 *.txt
 *.exe
-*.log
+#*.log
 printer
 printer.c
 project2
