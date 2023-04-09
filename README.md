@@ -1,4 +1,4 @@
-### **CS 140 Project 2: Parallelized grep Runner
+### **CS 140 Project 2: Parallelized `grep` Runner**
 
 ## **Description**
 For this Operating Systems project, our goal was to **parallelize `grep`**, Linux's primary RegEx search utility.
