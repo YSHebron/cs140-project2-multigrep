@@ -46,23 +46,31 @@ It is suggested for you to only watch the video documentation or read the writte
 However, if you really wish to verify the results on your end, the following would be needed.
 - Windows 7 or higher. Skip the next bullet if you already have a Linux environment.
 - Latest version of [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (recommended, any Distro would do). Alternative would be to set up a Linux environment in a Virtual Machine, but lightweight testing can be accomplished through WSL.
-- **Important:** You must have at least 4 CPU cores in your Linux environment to proceed. 
+- **Important:** You must have **at least 4 CPU cores** in your Linux environment to proceed. 
 - Upon setting-up your Linux environment, ensure that you have a `gcc` compiler. This project is untested on `clang`.
 - Version 3.7 of `grep`.
+- Optional: `tree` for visualizing the contents of the input path or directory. To install, enter `sudo apt install tree`.
 
-For running tests, please directly proceed to the next section.
+For running tests, please proceed directly to the next section.
 
 ## **Running Tests**
-This walkthrough will only focus on `multithreaded.c`. A test directory `testdir\` in which you could run the multithreaded `grep` is already provided for your convenience. Analagous steps can be taken for your own tests on different directories.
+This walkthrough will only focus on `multithreaded.c`. A test directory `testdir\` in which you could run the multithreaded `grep` is already provided for your convenience. The long file and folder names are used as edge cases (noting that the absolute path to files can only have at most 250 characters). Analagous steps can be taken for your own tests on different directories. You may also populate `testdir\` or your own directory with your own files (text files are most recommended).
 
 To make use of the provided test directory:
 1. Launch `wsl` on a terminal.
 2. `cd` to the root directory of this project.
-3. Enter `gcc multithreaded.c -lpthread -o multithreaded`. This compiles the file as an executable named `multithreaded`. Note the POSIX multithreading tag. Other filenames could be used.
-4. This  `./multithreaded 4 testdir hello`
-5. Verify the results by checking the output in the terminal. As Jan Paul also taught me, it is useful to do `make qemu nox | tee test.out` to dump `stdout` to a log file, `test.out` in this case, which one can verify later on.  
+3. Enter `gcc multithreaded.c -lpthread -o multithreaded`. This compiles the file as an executable named `multithreaded`. Note the POSIX multithreading tag. Other filenames could be used. Important, this program has the following execution format:
+```shell
+./multithreaded <number_of_threads> <root_directory> <search_string>
 
-Note on `priofork(k)`: this is a system call that is very similar to `fork()` but ignores the `RSDL_STARTING_LEVEL` parameter, replacing it with `k` instead. That is, a process created using `priofork(k)` will be enqueued in level `k` of the Active set. 
+# number_of_threads: number of worker threads
+# root_directory: dir in which grep exploration will begin (first dir to be enqueued to task queue)
+# search_string: regular expression for use with grep
+```
+4. For this example, let's enter `./multithreaded 4 testdir hello`. That is, there will be 1 main thread that launches 4 worker threads that will concurrently comb all files in testdir and its subdirectories for instances of the string "hello".
+5. Verify the results by checking the output in the terminal. 
+
+Other suggested test directories would be `./multithreaded 4 . hello` in the project directory, or a larger one such as `/home`. The test regular expression may also be modified to your liking. `tree` is particularly useful to check. 
 
 ---
 Yenzy Urson S. Hebron
