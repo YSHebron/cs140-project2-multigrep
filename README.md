@@ -44,29 +44,22 @@ function from.
 It is suggested for you to only watch the video documentation or read the written documentation.
 
 However, if you really wish to verify the results on your end, the following would be needed.
-- Windows 7 or higher. Otherwise, skip the next bullet if you already have a Linux environment.
-- Latest version of [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (Recommended). Alternative would be to set up a Linux environment in a Virtual Machine, but lightweight testing can be accomplished through WSL.
-- Upon setting-up WSL, launch WSL entering `wsl` in a terminal, then install prerequisites by running the following:
-```shell
-sudo apt update
+- Windows 7 or higher. Skip the next bullet if you already have a Linux environment.
+- Latest version of [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (recommended, any Distro would do). Alternative would be to set up a Linux environment in a Virtual Machine, but lightweight testing can be accomplished through WSL.
+- **Important:** You must have at least 4 CPU cores in your Linux environment to proceed. 
+- Upon setting-up your Linux environment, ensure that you have a `gcc` compiler. This project is untested on `clang`.
+- Version 3.7 of `grep`.
 
-sudo apt install -y build-essential qemu-system-x86 gdb python3-pip
-python3-testresources git
-
-pip3 install gdbgui
-
-echo "set auto-load safe-path /" >> ~/.gdbinit
-```
 For running tests, please directly proceed to the next section.
 
 ## **Running Tests**
-Test programs were already provided for your convenience. These test programs utilize the system call `schedlog(n)` that causes all processes in each level of the sets to be printed out during program execution. But if you wish, you may write your own test programs that verifies if the RSDL scheduler behaves as expected. You may also edit the scheduler's **parameters** in `rsdl.h`.
+This walkthrough will only focus on `multithreaded.c`. A test directory `testdir\` in which you could run the multithreaded `grep` is already provided for your convenience. Analagous steps can be taken for your own tests on different directories.
 
-To make use of the provided test programs:
+To make use of the provided test directory:
 1. Launch `wsl` on a terminal.
 2. `cd` to the root directory of this project.
-3. Enter `make clean`, then `make qemu-nox`. This will launch the RSDL xv6.
-4. Run any of the following test programs (see files named `test_*`). For example, to run `test_priofork.c`, enter `test_priofork`. To stop the test program, press `CTRL+A` then press `x`. This exits xv6.
+3. Enter `gcc multithreaded.c -lpthread -o multithreaded`. This compiles the file as an executable named `multithreaded`. Note the POSIX multithreading tag. Other filenames could be used.
+4. This  `./multithreaded 4 testdir hello`
 5. Verify the results by checking the output in the terminal. As Jan Paul also taught me, it is useful to do `make qemu nox | tee test.out` to dump `stdout` to a log file, `test.out` in this case, which one can verify later on.  
 
 Note on `priofork(k)`: this is a system call that is very similar to `fork()` but ignores the `RSDL_STARTING_LEVEL` parameter, replacing it with `k` instead. That is, a process created using `priofork(k)` will be enqueued in level `k` of the Active set. 
