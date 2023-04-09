@@ -15,3 +15,4 @@ project2
 *.bkp
 *.docx
 extras/CS140_Project2_Specs.pdf
+*.dtmp
