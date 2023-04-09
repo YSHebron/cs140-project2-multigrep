@@ -68,9 +68,23 @@ To make use of the provided test directory:
 # search_string: regular expression for use with grep
 ```
 4. For this example, let's enter `./multithreaded 4 testdir hello`. That is, there will be 1 main thread that launches 4 worker threads that will concurrently comb all files in testdir and its subdirectories for instances of the string "hello".
-5. Verify the results by checking the output in the terminal. 
+5. Verify the results by checking the output in the terminal for any errors. The root absolute path and all its subdirectories must have been enqueued (`ENQUEUE`) and explored (`DIR`), and all files in each directory must have been grep'd, resulting in either `PRESENT` or `ABSENT`.
+6. Note that the utility `tree` is particularly useful for checking if your multithreaded grep runner has behaved properly. Try entering `tree testdir` to test this particular case.
 
-Other suggested test directories would be `./multithreaded 4 . hello` in the project directory, or a larger one such as `/home`. The test regular expression may also be modified to your liking. `tree` is particularly useful to check. 
+Other suggested test cases:
+```shell
+./multithreaded 4 . hello       # in the project directory
+./multithreaded 4 /home hello   # a larger directory
+
+# Number of worker threads could be any positive integer, but the number of them
+# that could work simultaneously is bounded above by the number of your CPU cores.
+# Only valid paths will be accepted.
+# The test regular expression may also be modified to your liking.
+# Try * to get all PRESENT.
+```
+
+ 
+
 
 ---
 Yenzy Urson S. Hebron
