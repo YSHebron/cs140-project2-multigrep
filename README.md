@@ -9,7 +9,7 @@ A single-threaded version is available as `single.c`.
 
 A prudent attempt at making a multiprocessing version was also done by on-the-go study of multiprocess-safety and implementation
 of interprocess communication constructs such as shared files and shared memory sections (e.g. via `mmap()`).
-For the result, see `multiprocess.c`. This is almost working, the only issue was with the chain termination of sibling processes.
+For the result, see `multiprocess.c`. This is almost working, the only issue was in the chain termination of sibling processes.
 
 Main language used was C. Compilation and testing were done through Oracle VirtualBox
 using CS 140's prebuilt Ubuntu appliance. Other tools used include Valgrind for catching memory leaks.
@@ -33,10 +33,10 @@ to /dev/null.
 how  to  check  if  a  “file”  is  a  regular  file  or  a  directory.  This  is  where  I  got  the  idea  of  the  isDir 
 function from.
 
-*OSTEP:* Arpaci-Dusseau, A. C. & Arpaci-Dusseau, R. H. (2018). *Operating Systems: Three Easy Steps.* University of Wisconsin-Madison. https://research.cs.wisc.edu/wind/OSTEP/
+OSTEP: Arpaci-Dusseau, A. C. & Arpaci-Dusseau, R. H. (2018). *Operating Systems: Three Easy Steps.* University of Wisconsin-Madison. https://research.cs.wisc.edu/wind/OSTEP/
 
 ### **Quick Links**
-- Full project specifications are in `extras\CS140_Project2_Specs.pdf`. Please email me for access.
+- Full project specifications are in `extras\CS140_Project2_Specs.pdf`. Please [email](yshebron@up.edu.ph) me for access.
 - Project Documentation can be found in `extras\cs140project2.pdf`.
 - Video Documentation can be found [here](https://drive.google.com/file/d/1TQsPHLUj58J7ZiazSH22b_iuG5ZbK7XZ/view?usp=share_link).
 
@@ -46,10 +46,10 @@ It is suggested for you to only watch the video documentation or read the writte
 However, if you really wish to verify the results on your end, the following would be needed.
 - Windows 7 or higher. Skip the next bullet if you already have a Linux environment.
 - Latest version of [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (recommended, any Distro would do). Alternative would be to set up a Linux environment in a Virtual Machine, but lightweight testing can be accomplished through WSL.
-- **Important:** You must have **at least 4 CPU cores** in your Linux environment to proceed. 
-- Upon setting-up your Linux environment, ensure that you have a `gcc` compiler. This project is untested on `clang`.
+- **Important:** You must have **at least 2 CPU cores** in your Linux environment to proceed.
+- Upon setting-up your Linux environment, ensure that you have a `gcc` compiler. This project is untested on `clang` compilers.
 - Version 3.7 of `grep`.
-- Optional: `tree` for visualizing the contents of the input path or directory. To install, enter `sudo apt install tree`.
+- Optional: `tree` for visualizing the contents of the input path or directory. To install, enter `sudo apt install tree` in a Linux terminal.
 
 For running tests, please proceed directly to the next section.
 
@@ -59,7 +59,7 @@ This walkthrough will only focus on `multithreaded.c`. A test directory `testdir
 To make use of the provided test directory:
 1. Launch `wsl` on a terminal.
 2. `cd` to the root directory of this project.
-3. Enter `gcc multithreaded.c -lpthread -o multithreaded`. This compiles the file as an executable named `multithreaded`. Note the POSIX multithreading tag. Other filenames could be used. Important, this program has the following execution format:
+3. Enter `gcc multithreaded.c -lpthread -o multithreaded`. This compiles the file as an executable named `multithreaded`. Note the POSIX multithreading tag. Other filenames could be used. This program has the following execution format:
 ```shell
 ./multithreaded <number_of_threads> <root_directory> <search_string>
 
@@ -83,11 +83,9 @@ Other suggested test cases:
 # Try * to get all PRESENT.
 ```
 
- 
-
-
 ---
-Yenzy Urson S. Hebron
+Yenzy Urson S. Hebron \
+yshebron@up.edu.ph
 
 University of the Philippines Diliman
 
