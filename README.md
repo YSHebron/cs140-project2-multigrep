@@ -37,7 +37,7 @@ OSTEP: Arpaci-Dusseau, A. C. & Arpaci-Dusseau, R. H. (2018). *Operating Systems:
 
 ### **Quick Links**
 - Full project specifications are in `extras\CS140_Project2_Specs.pdf`. Please [email](yshebron@up.edu.ph) me for access.
-- Project Documentation can be found in `extras\cs140project2.pdf`.
+- Project Documentation can be found in `Documentation.pdf`.
 - Video Documentation can be found [here](https://drive.google.com/file/d/1TQsPHLUj58J7ZiazSH22b_iuG5ZbK7XZ/view?usp=share_link).
 
 ## **Requirements**
