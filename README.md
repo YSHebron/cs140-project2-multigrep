@@ -15,7 +15,7 @@ Main language used was C. Compilation and testing were done through Oracle Virtu
 using CS 140's prebuilt Ubuntu appliance. Other tools used include Valgrind for catching memory leaks.
 
 Worker thread behavior in `multithreaded.c` along with their outputs and control signals are shown in the flowchart below.
-![worker_behavior.png](extras/worker_behavior_2.png)
+![worker_behavior.png](extras/worker_behavior_3.png)
 
 ### **References**
 We immediately show our references here as they contain important realizations.
