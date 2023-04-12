@@ -25,12 +25,11 @@ for my own implementation which utilizes a heap-based unbounded buffer for the t
 served as guide for my use of locks and condition variables for thread synchronization. 
 - OSTEP  (Ch.  39):  This  chapter  helped  me  understand  directory  traversal  and  the  handling  of 
 absolute and relative paths. 
-- https://stackoverflow.com/questions/3736320/executing-shell-script-with-system-returns-256-
-what-does-that-mean : For why we should divide the return value of system() by 256. 
+- https://stackoverflow.com/questions/3736320/executing-shell-script-with-system-returns-256-what-does-that-mean : For why we should divide the return value of system() by 256.
 - https://unix.stackexchange.com/questions/119648/redirecting-to-dev-null : For how to redirect 
 to /dev/null. 
 - https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file : For 
-how  to  check  if  a  “file”  is  a  regular  file  or  a  directory.  This  is  where  I  got  the  idea  of  the  isDir 
+how  to  check  if  a  “file”  is  a  regular  file  or  a  directory.  This  is  where  I  got  the  idea  of  the  `isDir` 
 function from.
 
 OSTEP: Arpaci-Dusseau, A. C. & Arpaci-Dusseau, R. H. (2018). *Operating Systems: Three Easy Steps.* University of Wisconsin-Madison. https://research.cs.wisc.edu/wind/OSTEP/
