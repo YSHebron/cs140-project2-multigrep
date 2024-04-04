@@ -35,7 +35,7 @@ function from.
 OSTEP: Arpaci-Dusseau, A. C. & Arpaci-Dusseau, R. H. (2018). *Operating Systems: Three Easy Steps.* University of Wisconsin-Madison. https://research.cs.wisc.edu/wind/OSTEP/
 
 ### **Quick Links**
-- Full project specifications are in `extras\CS140_Project2_Specs.pdf`. Please [email](yshebron@up.edu.ph) me for access.
+- Full project specifications are in `extras/CS140_Project2_Specs.pdf`. Please [email](yshebron@up.edu.ph) me for access.
 - Project Documentation can be found in `Documentation.pdf`.
 - Video Documentation can be found [here](https://drive.google.com/file/d/1TQsPHLUj58J7ZiazSH22b_iuG5ZbK7XZ/view?usp=share_link).
 
@@ -53,7 +53,7 @@ However, if you really wish to verify the results on your end, the following wou
 For running tests, please proceed directly to the next section.
 
 ## **Running Tests**
-This walkthrough will only focus on `multithreaded.c`. A test directory `testdir\` in which you could run the multithreaded `grep` is already provided for your convenience. The long file and folder names are used as edge cases (noting that the absolute path to files can only have at most 250 characters). Analagous steps can be taken for your own tests on different directories. You may also populate `testdir\` or your own directory with your own files (text files are most recommended).
+This walkthrough will only focus on `multithreaded.c`. A test directory `testdir/` in which you could run the multithreaded `grep` is already provided for your convenience. The long file and folder names are used as edge cases (noting that the absolute path to files can only have at most 250 characters). Analagous steps can be taken for your own tests on different directories. You may also populate `testdir/` or your own directory with your own files (text files are most recommended).
 
 To make use of the provided test directory:
 1. Launch `wsl` on a terminal.
@@ -83,10 +83,10 @@ Other suggested test cases:
 ```
 
 ---
-Yenzy Urson S. Hebron \<yshebron@up.edu.ph\>
+Yenzy Urson S. Hebron /<yshebron@up.edu.ph/>
 
 University of the Philippines Diliman
 
 1st Semester A.Y. 2022-2023
 
-© Course Materials by Sir Wilson Tan, Sir Juan Felipe Coronel, and Ma'am Angela Zabala
+© Course Materials by Dr. Wilson M. Tan, Sir Juan Felipe Coronel, and Ma'am Angela Zabala
